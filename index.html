@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>محول العملات الذكي - مقارنة الدولار والدينار العراقي</title>
+    <title>محول العملات الذكي - مقارنة الدينار العراقي والدولار الفورية</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -13,70 +13,76 @@
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col justify-between">
+<body class="bg-gradient-to-br from-gray-50 to-blue-50 text-gray-800 min-h-screen flex flex-col justify-between">
 
     <!-- Header / Navbar -->
-    <header class="bg-blue-600 text-white shadow-md py-4">
+    <header class="bg-blue-600 text-white shadow-lg py-4 sticky top-0 z-50">
         <div class="container mx-auto px-4 flex justify-between items-center">
             <h1 class="text-xl font-bold flex items-center gap-2">
-                💱 محول العملات الفوري
+                💱 محول العملات الفوري الذكي
             </h1>
-            <span class="text-xs bg-blue-700 px-3 py-1 rounded-full">تحديث مباشر</span>
+            <span class="text-xs bg-blue-700 border border-blue-400 px-3 py-1 rounded-full shadow-inner">تحديث مباشر للأسعار</span>
         </div>
     </header>
 
-    <!-- Ad Banner Top (Placeholder) -->
-    <div class="container mx-auto px-4 mt-4">
-        <div class="bg-gray-200 border-2 border-dashed border-gray-300 rounded-lg p-3 text-center text-gray-500 text-sm">
-            إعلان تجاري / Place your ad here (AdSense / Adsterra)
+    <!-- Ad Banner Top (Adsterra Integration) -->
+    <div class="container mx-auto px-4 mt-6 text-center">
+        <div class="bg-white p-2 rounded-xl shadow-sm inline-block max-w-full overflow-hidden">
+            <script async="async" data-cfasync="false" src="https://pl31292641.profitableratecpmnetwork.com/b2957a57f1917885c19bb620099b2c2f/invoke.js"></script>
+            <div id="container-b2957a57f1917885c19bb620099b2c2f"></div>
         </div>
     </div>
 
     <!-- Main Container -->
-    <main class="container mx-auto px-4 py-8 flex-grow max-w-2xl">
+    <main class="container mx-auto px-4 py-6 flex-grow max-w-2xl">
         
         <!-- Quick Comparison Card (USD to IQD) -->
-        <div class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-2xl p-6 shadow-lg mb-8">
-            <h2 class="text-lg font-semibold mb-2 opacity-90">المعرّف السريع (الدولار مقابل الدينار)</h2>
-            <div class="flex justify-between items-center bg-white/10 backdrop-blur-md p-4 rounded-xl">
+        <div class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-3xl p-6 shadow-xl mb-8 relative overflow-hidden">
+            <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+            <h2 class="text-sm font-semibold mb-3 opacity-90 uppercase tracking-wider">نظرة سريعة (الدولار مقابل الدينار)</h2>
+            <div class="flex justify-between items-center bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20">
                 <div>
-                    <span class="text-2xl font-bold">1 دولار أمريكي (USD)</span>
+                    <span class="text-xl font-bold block">1 دولار (USD)</span>
+                    <span class="text-xs opacity-75">سعر أساسي</span>
                 </div>
-                <div class="text-xl">➡️</div>
+                <div class="text-2xl animate-pulse">⇄</div>
                 <div class="text-left">
-                    <span id="quickRateDisplay" class="text-2xl font-bold text-yellow-300">1,310 دينار (IQD)</span>
+                    <span id="quickRateDisplay" class="text-xl font-extrabold text-yellow-300 block">1,310 دينار (IQD)</span>
+                    <span class="text-xs opacity-75">سعر الصرف الرسمي</span>
                 </div>
             </div>
-            <p class="text-xs mt-3 opacity-80 text-center">السعر قابل للتغير وفقاً لأسواق الصرف الرسمية</p>
+            <p class="text-xs mt-3 opacity-80 text-center">الأسعار تتغير بناءً على تحديثات السوق المصرفية الرسمية</p>
         </div>
 
         <!-- Converter Card -->
-        <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8">
-            <h2 class="text-xl font-bold text-gray-800 mb-6 text-center">تحويل العملات بدقة</h2>
+        <div class="bg-white rounded-3xl shadow-xl p-6 md:p-8 border border-gray-100">
+            <h2 class="text-xl font-bold text-gray-800 mb-6 text-center">حاسبة تحويل العملات المتقدمة</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-7 gap-4 items-center mb-6">
                 <!-- From Amount & Currency -->
                 <div class="md:col-span-3">
                     <label class="block text-sm font-medium text-gray-600 mb-2">المبلغ المراد تحويله</label>
                     <input type="number" id="amountInput" value="1" min="0" step="any" 
-                        class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none text-lg font-semibold"
+                        class="w-full px-4 py-3 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:outline-none text-lg font-semibold bg-gray-50/50 transition"
                         oninput="convertCurrency()">
                 </div>
 
                 <div class="md:col-span-2">
                     <label class="block text-sm font-medium text-gray-600 mb-2">من عملة</label>
                     <select id="fromCurrency" onchange="convertCurrency()"
-                        class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                        class="w-full px-4 py-3 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:outline-none bg-gray-50/50 transition">
                         <option value="USD">دولار أمريكي (USD)</option>
                         <option value="IQD">دينار عراقي (IQD)</option>
-                        <option value="EUR">يورو (EUR)</option>
+                        <option value="EUR">يورو أوروبي (EUR)</option>
                         <option value="GBP">جنيه إسترليني (GBP)</option>
+                        <option value="AED">درهم إماراتي (AED)</option>
+                        <option value="SAR">ريال سعودي (SAR)</option>
                     </select>
                 </div>
 
                 <!-- Swap Button -->
                 <div class="md:col-span-2 flex justify-center items-end pb-1">
-                    <button onclick="swapCurrencies()" class="w-full md:w-auto bg-gray-100 hover:bg-gray-200 text-gray-700 p-3 rounded-xl transition flex items-center justify-center gap-1 border border-gray-300">
+                    <button onclick="swapCurrencies()" class="w-full md:w-auto bg-gray-100 hover:bg-blue-50 hover:text-blue-600 text-gray-700 p-3 rounded-2xl transition flex items-center justify-center gap-1 border border-gray-200 shadow-xs">
                         🔄 تبديل
                     </button>
                 </div>
@@ -85,43 +91,43 @@
             <div class="mb-6">
                 <label class="block text-sm font-medium text-gray-600 mb-2">إلى عملة</label>
                 <select id="toCurrency" onchange="convertCurrency()"
-                    class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                    class="w-full px-4 py-3 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:outline-none bg-gray-50/50 transition">
                     <option value="IQD" selected>دينار عراقي (IQD)</option>
                     <option value="USD">دولار أمريكي (USD)</option>
-                    <option value="EUR">يورو (EUR)</option>
+                    <option value="EUR">يورو أوروبي (EUR)</option>
                     <option value="GBP">جنيه إسترليني (GBP)</option>
+                    <option value="AED">درهم إماراتي (AED)</option>
+                    <option value="SAR">ريال سعودي (SAR)</option>
                 </select>
             </div>
 
             <!-- Result Box -->
-            <div class="bg-blue-50 border border-blue-100 rounded-xl p-5 text-center">
-                <span class="text-sm text-gray-500 block mb-1">النتيجة المحولة:</span>
-                <div id="resultOutput" class="text-3xl font-extrabold text-blue-600">1,310.00 IQD</div>
+            <div class="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100 rounded-2xl p-6 text-center shadow-inner">
+                <span class="text-sm text-gray-500 block mb-1">النتيجة النهائية المحولة:</span>
+                <div id="resultOutput" class="text-3xl md:text-4xl font-extrabold text-blue-600 tracking-tight">1,310.00 IQD</div>
             </div>
         </div>
 
     </main>
 
-    <!-- Ad Banner Bottom (Placeholder) -->
-    <div class="container mx-auto px-4 mb-4">
-        <div class="bg-gray-200 border-2 border-dashed border-gray-300 rounded-lg p-3 text-center text-gray-500 text-sm">
-            إعلان تجاري سفلي / Bottom Ad Space
-        </div>
-    </div>
-
     <!-- Footer -->
-    <footer class="bg-white border-t border-gray-200 py-4 text-center text-sm text-gray-500">
-        جميع الحقوق محفوظة &copy; 2026 - موقع محول العملات الذكي
+    <footer class="bg-white border-t border-gray-200 py-6 text-center text-sm text-gray-500 mt-8">
+        <div class="container mx-auto px-4">
+            <p class="mb-2">أداة احترافية سريعة وآمنة لتحويل العملات ودعم المقارنات الفورية.</p>
+            جميع الحقوق محفوظة &copy; 2026 - محول العملات الذكي
+        </div>
     </footer>
 
     <!-- JavaScript Logic -->
     <script>
-        // أسعار الصرف التقريبية (تتخذ الدولار كقاعدة أساسية Base: USD)
+        // أسعار الصرف الأساسية المعيارية (تتخذ الدولار الأمريكي كقاعدة أساسية Base: USD)
         const rates = {
             USD: 1,
-            IQD: 1310,   // سعر الصرف الرسمي للدولار مقابل الدينار العراقي تقريباً
+            IQD: 1310,   // سعر الصرف الرسمي للدولار مقابل الدينار العراقي
             EUR: 0.92,
-            GBP: 0.78
+            GBP: 0.78,
+            AED: 3.67,
+            SAR: 3.75
         };
 
         function convertCurrency() {
@@ -129,11 +135,11 @@
             const from = document.getElementById('fromCurrency').value;
             const to = document.getElementById('toCurrency').value;
 
-            // التحويل إلى الدولار أولاً ثم إلى العملة المستهدفة
+            // التحويل الإلزامي عبر الدولار
             const amountInUSD = amount / rates[from];
             const finalResult = amountInUSD * rates[to];
 
-            // عرض النتيجة مع تنسيق الفواصل والأرقام العشرية
+            // تحديث واجهة النتيجة مع تنسيق الفواصل العشرية
             document.getElementById('resultOutput').innerText = 
                 finalResult.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' ' + to;
         }
@@ -149,8 +155,13 @@
             convertCurrency();
         }
 
-        // تشغيل التحويل تلقائياً عند فتح الصفحة
+        // تشغيل التحويل التلقائي عند التحميل
         window.onload = convertCurrency;
     </script>
+
+    <!-- Adsterra Direct / Popunder Scripts Integration -->
+    <script src="https://pl31292639.profitableratecpmnetwork.com/df/e4/78/dfe478cddb66d18110cc5950df19f1b7.js"></script>
+    <script src="https://pl31292639.profitableratecpmnetwork.com/df/e4/78/dfe478cddb66d18110cc5950df19f1b7.js"></script>
+    <script src="https://pl31292640.profitableratecpmnetwork.com/44/7f/b0/447fb01f9c5fa8f7e7c1bfb822a2b8c2.js"></script>
 </body>
 </html>
